@@ -4,20 +4,29 @@ class calculator {
     this.num2 = 20;
   }
   Add() {
-    console.log("Addition"), (this.add = this.num1 + this.num2);
+    console.log("Addition"),
+    (this.add = this.num1 + this.num2);
     console.log(this.add);
     return {
       num1: this.num1,
       num2: this.num2,
       result: this.num1 + this.num2,
       type: "Add",
+  
     };
   }
+  
 
   Sub() {
     console.log("subtraction");
     this.sub = this.num1 - this.num2;
     console.log(this.sub);
+       return {
+         num1: this.num1,
+         num2: this.num2,
+         result: this.num1 - this.num2,
+         type: "Sub",
+       };
   }
   
 
@@ -25,31 +34,53 @@ class calculator {
     console.log("Multiplication");
     this.mul = this.num1 * this.num2;
     console.log(this.mul);
+  
+     return {
+      num1: this.num1,
+      num2: this.num2,
+      result: this.num1 * this.num2,
+      type: "mul",
+  
+    };
   }
 
   Divide() {
     console.log("divide");
     this.div = this.num1 / this.num2;
     console.log(this.div);
+     return {
+      num1: this.num1,
+      num2: this.num2,
+      result: this.num1 /this.num2,
+      type: "div",
+  
+    };
   }
-}
+  }
+
 class Calculation extends calculator {
   constructor() {
     super();
     this.myCalculation = [];
   }
   doAdd() {
-    this.myCalculation.push(this.add());
+    this.myCalculation.push(this.Add());
+  }
+  doSub() {
+    this.myCalculation.push(this.Sub());
+  }
+  doMultiply() {
+    this.myCalculation.push(this.Multiply());
+  }
+  doDivide() {
+    this.myCalculation.push(this.Divide());
   }
 }
 const calculation = new Calculation();
-add = calculation.Add();
+add = calculation.doAdd();
+sub = calculation.doSub()
+mul = calculation.doMultiply();
+div = calculation.doDivide();
 getAllCalculation = calculation.myCalculation;
-console.log(add);
 console.log(getAllCalculation);
-// sub = calculation.Sub();
-// console.log(sub);
-// mul = calculation.mul();
-// console.log(mul);
-// div = calculation.div();
-// console.log(mul);
+
